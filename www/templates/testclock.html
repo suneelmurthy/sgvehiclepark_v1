@@ -1,0 +1,46 @@
+<ion-view view-title="Account Details">
+  <ion-content>
+    <h3 align="center">clock</h3>
+
+    <div class="workspace" ng-app="starter.controllers" ng-controller="ParkingCouponCtrl" ng-class="{'x-ray': xRay}">
+
+  <div class="output">
+    <span><i ng-click="toggleMode()" class="fa fa-clock-o fa-fw fa-lg" ng-class="{'ghost': mode == 'set'}"></i></span>
+    <span>{{format(time) | date: 'HH:mm Ð MMMM d'}} <i ng-click="reset()" class="fa fa-history fa-fw fa-lg fa-flip-horizontal" ng-class="{'ghost': mode == 'tell'}"></i></span>
+    <span><a href="https://github.com/jasesmith/circadian-funicular" target="_blank" class="fa fa-github fa-fw fa-lg"></a></span>
+  </div>
+
+  <div class="case">
+    <!-- this is the thing -->
+    case222222 ...
+    <script>
+      alert(window.moment + "hhdddd");
+      alert("Hi");
+    </script>
+    <time-dial time="time" diameter="diameter" unit="unit" mode="mode"></time-dial>
+  </div>
+
+  <!-- this is just some playground tools -->
+  <div class="config" onclick=alert("hi");>
+     <script>
+      alert(window.moment + "hhdddd");
+      alert("Hi");
+    </script>
+   <div class="flex-3"><input type="range" min="10" max="90" ng-model="diameter" style="width:100%" /></div>
+    <div class="flex-none pad-left-1"><label><input type="checkbox" class="toggle" ng-model="xRay" /></label></div>
+  </div>
+
+</div>
+
+<script>
+  /*
+required resources:
+	- angular.js
+	- hammer.js
+	- moment.js
+*/
+ 
+
+</script>
+  </ion-content>
+</ion-view>

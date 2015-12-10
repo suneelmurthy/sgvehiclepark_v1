@@ -1,0 +1,50 @@
+<ion-view view-title="Account Details">
+  <ion-content>
+    <div>
+      <br>
+    </div>
+    <h3 align="center"> Welcome Suneel! </h3>
+    <div>
+      <br>
+    </div>
+    
+    <h3 align="center">User Details</h3>
+      <form>
+      <div class="list">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">First Name</span>
+          <input type="text" placeholder="John" ng-model="accountData.firstname">
+        </label>
+        
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Last Name</span>
+          <input type="text" placeholder="Ng" ng-model="accountData.lastname">
+        </label>
+
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Email</span>
+          <input type="email" placeholder="john.ng@gmail.com" ng-model="accountData.email">
+        </label>
+
+        <div>
+          <br><br>
+        </div>
+        <h3 align="center">Add Vehicle</h3>
+
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Vehicle Registration Number</span>
+          <input type="text" placeholder="SGD 1234" ng-model="accountData.regnumber">
+        </label>
+                
+        <div>
+          <br><br><br><br>
+        </div>
+        <div class="item" align="center">          
+          <button class="button button-block icon-left ion-compose" ng-click="doUpdate()">Update</button>
+          <button class="button button-block icon-left ion-chevron-right" ng-click="doSkip()">Skip</button>
+        </div>
+      </div>
+    </form>
+
+  </ion-content>
+</ion-view>

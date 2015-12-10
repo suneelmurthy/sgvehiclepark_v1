@@ -1,0 +1,43 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Singapore's Smart Parking System</h1>
+    <script>alert("Login.html");</script>
+<!--    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+    </div>
+-->  </ion-header-bar>
+  <ion-content>
+    <div> <br><br></div>
+    <div align="center">
+      <h4>Please SignIn/Register to continue. </h4>
+    </div>
+    <div>
+      <br><br><br>
+    </div>
+    <form name="loginForm">
+      
+      <div class="list">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">NRIC/FIN/Passport</span>
+          <input type="text" placeholder="S123456" ng-model="loginData.username" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Password</span>
+          <input type="password" placeholder="name@001" ng-model="loginData.password" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Handphone</span>
+          <input type="number" placeholder="91234567" ng-model="loginData.handphone">
+        </label>
+        <div>
+          <br><br><br><br><br><br>
+        </div>
+       
+        <div>
+          <button class="button button-full button-outline icon-left ion-ios-unlocked button-calm" ng-disabled="(((loginData.username == null) || (loginData.password == null)) || (loginData.handphone != null))" ng-click="doLogin()">Log In</button>
+          <button class="button button-block icon-left ion-person-add button-royal" ng-disabled="((loginData.username == null) || (loginData.password == null) || (loginData.handphone == null))" ng-click="doRegister()">Register</button>
+        </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view> 

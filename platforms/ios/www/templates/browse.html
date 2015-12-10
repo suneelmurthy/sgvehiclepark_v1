@@ -1,0 +1,29 @@
+<ion-view view-title="Account Details">
+  <ion-content>
+    <h3 align="center">User Details</h3>
+      <form>
+      <div class="list" id="container">
+        <label class="item item-input">
+          <input type="text" placeholder="FirstName" ng-model="accountData.firstname">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Password" ng-model="accountData.lastname" required>
+        </label>
+        <label class="item item-input">
+          <input type="email" placeholder="Email" ng-model="accountData.email" required>
+        </label>
+        <h3 align="center">Add Vehicle</h3>
+        <label id = "rounded" class="item item-input">
+          <input type="text" placeholder="Vehicle Registration Number" ng-model="accountData.vehiclenumber" required>
+        </label>
+        
+        
+        <div class="item" align="center">
+          <button class="button icon-left ion-compose" ng-click="doUpdate()">Update</button>
+          <button class="button icon-right ion-chevron-right" ng-click="doSkip()">Skip</button>
+        </div>
+      </div>
+    </form>
+
+  </ion-content>
+</ion-view>

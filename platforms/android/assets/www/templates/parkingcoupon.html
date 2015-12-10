@@ -1,0 +1,162 @@
+<ion-view view-title="Parking Coupon">
+  <!-- <ion-content> -->
+  <ion-tabs class="tabs-icon-top tabs-positive">
+
+        <!-- Tab 1 -->
+    <ion-tab title="Start Coupon" icon-on="ion-ios-paper" icon-off="ion-ios-paper-outline">
+      <ion-content has-header="true" padding="true">
+
+        <div>
+          <br>
+        </div>
+        <h3 align="center"> {{parkingcouponData.pageheader}} </h3>
+        <div>
+          <br>
+          <hr>    
+        </div>
+        <div>
+          <h4 align="center"> Coupon Type </h4>
+        </div>
+
+        <div align="center">
+          <div class="center-align" > 
+            <input type="radio" ng-model = "parkingcouponData.coupontype" id="coupon_car" value="car" checked='checked' />
+            <label for="coupon_car">Car</label>
+            
+            <input type="radio" ng-model = "parkingcouponData.coupontype" id="coupon_bike" value="bike" />
+            <label for="coupon_bike">Bike</label>  
+          </div>    
+        </div>
+
+        <div>
+          <br>
+          <hr> 
+        </div>
+
+        <div>
+          <h4 align="center"> Select Vehicle </h4>
+        </div>
+        
+        <div align="center">
+          <div class="center-align" ng-if="parkingcouponData.validvehicle"> 
+
+            <input ng-repeat-start="vehicleobject in parkingcouponData.vehiclelist" 
+                   type="radio" 
+                   value="{{vehicleobject.vehiclenum}}" 
+                   ng-model = "parkingcouponData.regnum" 
+                   name="size" 
+                   id="{{vehicleobject.vehiclenum}}">
+              <label for="{{vehicleobject.vehiclenum}}">
+                {{vehicleobject.vehiclenum}}
+              </label>
+            <span ng-repeat-end>          
+            </span>
+          </div>    
+          <div align="center" ng-if="!parkingcouponData.validvehicle">
+            <button class="button button-small button-balanced" ng-click="updatevehicle()">Add Vehicle</button>
+          </div>
+        </div>
+        
+        <div>
+          <br>
+          <hr>
+        </div>
+
+        <div>
+          <h4 align="center"> Select Duration </h4>
+        </div>
+        
+        <div class="list">
+          <div class="item range range-positive">
+            <i class="icon ion-ios-time-outline"></i>
+            <input type="range" name="volume" min="0" max="24" value="0.5" step="0.5" ng-model="parkingcouponData.couponduration" >
+            <i class="icon ion-ios-time"></i>
+          </div>
+          <div align="center">
+            <h5> Duration - {{parkingcouponData.couponduration}} hr </h5>
+          </div>
+        </div>
+
+        <div>
+          <hr>
+        </div>
+
+        <div class="list">
+          <label class="item item-input item-select">
+            <div class="input-label">
+              <h3>Select Location</h3>
+            </div>
+            <select>
+              <option>Boon Keng Road E01</option>
+              <option selected>Serangoon Road E02</option>
+              <option>Dhoby Ghat E03</option>
+            </select>
+          </label>
+        </div>
+        <div>
+          <hr>
+        </div>     
+        
+
+        <div align="center">
+          <br>
+          <!-- <a class="button button-icon icon ion-ios-paperplane-outline customIconSize" ng-click="doStartcoupon()"></a> -->
+          <a class="button button-icon customStartcoupon" ng-click="doStartcoupon()"></a>
+        </div>
+
+      </ion-content>
+    </ion-tab>
+
+        <!-- Tab 2 -->
+    <ion-tab title="Coupon Status" icon-on="ion-ios-stopwatch" icon-off="ion-ios-stopwatch-outline">
+      <ion-content has-header="true" padding="true">
+        <ion-slide-box does-continue="false"  ng-if="parkingcouponData.slidebox">
+            
+          <ion-slide ng-repeat="item in parkingcouponData.slideboxdata">
+
+            <div>
+              <br>
+              <br>
+            </div>
+            <h3 align="center"> Vehicle </h3>
+            <div>
+              <h4 align="center"> {{item.vehiclenum}} </h4>
+              <!-- <h4 align="center"> {{item}} </h4> -->
+            </div>
+            <div>
+              <hr>    
+            </div>
+            <div>
+              <h4 align="center"> Your coupon will expire in </h4>    
+            </div>            
+            <div align="center">
+              <div id="hours">{{parkingcouponData.hours}}<span id="spantimer">Hours</span></div>
+              <div id="minutes">{{parkingcouponData.minutes}}<span id="spantimer">Minutes</span></div>
+              <div id="seconds">{{parkingcouponData.seconds}}<span id="spantimer">Seconds</span></div>
+            </div>
+            <div>
+              <br><br><br><br><br><br>
+              <hr>
+            </div>
+         
+            <div>
+              <button class="button button-block button-outline icon-left ion-ios-unlocked button-calm" ng-click="doRenew()">Renew
+              <button class="button button-block icon-left ion-person-add button-royal" ng-click="doStop()">Stop</button>
+            </div>
+
+          </ion-slide>
+        </ion-slide-box>
+
+        <div ng-if="!parkingcouponData.slidebox">
+          <br>
+          <br>
+          <hr>
+          <h4 align="center"> No Active Coupons </h4>
+          <hr>
+        </div>
+
+      </ion-content>
+    </ion-tab>
+  </ion-tabs>    
+</ion-view>
+ 

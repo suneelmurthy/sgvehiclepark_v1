@@ -1,0 +1,274 @@
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1); }
+  51% {
+    -webkit-transform: translate(-50%, -50%) scale(1.65);
+            transform: translate(-50%, -50%) scale(1.65); }
+  100% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1); } }
+@keyframes pulse {
+  0% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1); }
+  51% {
+    -webkit-transform: translate(-50%, -50%) scale(1.65);
+            transform: translate(-50%, -50%) scale(1.65); }
+  100% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1); } }
+@-webkit-keyframes pulse-alt {
+  0% {
+    -webkit-transform: translate(0, 10%) scale(1);
+            transform: translate(0, 10%) scale(1); }
+  51% {
+    -webkit-transform: translate(0, 10%) scale(1.65);
+            transform: translate(0, 10%) scale(1.65); }
+  100% {
+    -webkit-transform: translate(0, 10%) scale(1);
+            transform: translate(0, 10%) scale(1); } }
+@keyframes pulse-alt {
+  0% {
+    -webkit-transform: translate(0, 10%) scale(1);
+            transform: translate(0, 10%) scale(1); }
+  51% {
+    -webkit-transform: translate(0, 10%) scale(1.65);
+            transform: translate(0, 10%) scale(1.65); }
+  100% {
+    -webkit-transform: translate(0, 10%) scale(1);
+            transform: translate(0, 10%) scale(1); } }
+.time-dial {
+  font-size: 300px;
+  width: 1em;
+  height: 1em;
+  position: relative;
+  line-height: 1;
+  color: inherit;
+  /* inherit from parent element or set explicitly: $light */
+  border-radius: 100%; }
+  .time-dial::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+            transform: scale(1.05);
+    border: .04em solid;
+    border-radius: 100%; }
+  .time-dial .lcd {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    font-size: 80%;
+    padding: .3em .2em;
+    border-radius: 1em;
+    font-family: "DIN Condensed", Impact, Helvetica, sans-serif;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    pointer-events: auto;
+    cursor: pointer;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-transition: color 0.3s ease-out, background 0.3s ease-out, top 0.3s ease-out;
+            transition: color 0.3s ease-out, background 0.3s ease-out, top 0.3s ease-out; }
+    .time-dial .lcd.toggled .meridiem {
+      -webkit-animation: pulse 0.3s ease-out;
+              animation: pulse 0.3s ease-out; }
+    .time-dial .lcd.toggled.Noon .meridiem, .time-dial .lcd.toggled.Midnight .meridiem {
+      -webkit-animation: pulse-alt 0.3s ease-out;
+              animation: pulse-alt 0.3s ease-out; }
+    .time-dial .lcd.Noon .time, .time-dial .lcd.Midnight .time {
+      display: none; }
+    .time-dial .lcd.Noon .meridiem, .time-dial .lcd.Midnight .meridiem {
+      font-size: 25%;
+      font-family: inherit;
+      position: relative;
+      text-transform: capitalize;
+      bottom: auto;
+      left: auto;
+      -webkit-transform: translate(0, 10%);
+          -ms-transform: translate(0, 10%);
+              transform: translate(0, 10%); }
+  .time-dial .time {
+    font-size: 35%;
+    position: relative; }
+  .time-dial .meridiem {
+    font-size: 15%;
+    font-family: "DIN Alternate", Helvetica, sans-serif;
+    text-transform: uppercase;
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); }
+  .time-dial .crown {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 35%;
+    bottom: 50%;
+    left: 35%;
+    -webkit-transform-origin: center bottom;
+        -ms-transform-origin: center bottom;
+            transform-origin: center bottom;
+    pointer-events: none;
+    font-size: 12.5%; }
+    .time-dial .crown span {
+      border-radius: 1em;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          -ms-transform: translate(-50%, -50%) rotate(45deg);
+              transform: translate(-50%, -50%) rotate(45deg);
+      pointer-events: auto;
+      cursor: pointer;
+      /*
+      &::after {
+         display: none;
+         content: attr(beat);
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%) rotate(-45deg);
+         font-size: 60%;
+         text-transform: uppercase;
+      }
+      */ }
+    .time-dial .crown.hour span {
+      background: #00BCD4;
+      box-shadow: 0 0 0 .15em currentColor;
+      width: 1em;
+      height: 1em; }
+    .time-dial .crown.minute span {
+      box-shadow: 0 0 0 0.15em #00BCD4;
+      background: currentColor;
+      width: .9em;
+      height: .9em; }
+    .time-dial .crown.second span {
+      top: 1em;
+      background: currentColor;
+      opacity: .35;
+      width: .5em;
+      height: .5em; }
+  .time-dial.active-touch .lcd {
+    top: 0%;
+    font-size: 45%;
+    background: rgba(0, 0, 0, 0.05);
+    pointer-events: none;
+    padding: 0;
+    z-index: 1;
+    margin: 0 -60%;
+    right: 50%;
+    left: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+    text-align: center;
+    border-radius: .05em;
+    -webkit-backdrop-filter: blur(0.1em);
+            backdrop-filter: blur(0.1em); }
+    .time-dial.active-touch .lcd.Noon .meridiem, .time-dial.active-touch .lcd.Midnight .meridiem {
+      font-size: 60%;
+      -webkit-transform: translate(0, 0);
+          -ms-transform: translate(0, 0);
+              transform: translate(0, 0); }
+  .time-dial.active-touch .time::before,
+  .time-dial.active-touch .meridiem::before {
+    content: attr(data-title);
+    position: absolute;
+    -webkit-text-stroke: 0.125em #008fa1;
+    left: 0;
+    z-index: -1; }
+  .time-dial.active-touch .time {
+    display: inline-block;
+    font-size: 60%; }
+  .time-dial.active-touch .meridiem {
+    display: inline-block;
+    font-size: 35%;
+    position: relative;
+    bottom: auto;
+    left: auto;
+    -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+            transform: translate(0, 0);
+    -webkit-transition: -webkit-transform 0.3s ease-out;
+            transition: transform 0.3s ease-out; }
+  .time-dial.active-touch .crown {
+    z-index: 0; }
+    .time-dial.active-touch .crown span {
+      background: #5d5d5f; }
+
+/* disable dragging crowns when telling time */
+.time-dial.tell .lcd,
+.time-dial.tell .crown span {
+  pointer-events: none;
+  cursor: default; }
+
+/* hide second marker when setting time */
+.time-dial.set .crown.second {
+  display: none; }
+
+/*
+.time-dial.tell {
+  .crown.second {
+    transition: $timing linear;
+  }
+}
+.time-dial.tell {
+  .time span {
+    animation: fadeIn alternate .5s linear infinite;
+  }
+  .crown {
+    transition: $timing linear;
+    z-index: 0;
+    span {
+      opacity: 0;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      left: 100%;
+      background-color: $dark; //#f06292;
+      transform: translateX(-50%);
+      border-radius: .2em;
+    }
+    &.minute::after {
+      top: 5%;
+      height: 45%;
+      padding: .1em;
+    }
+    &.hour::after {
+      top: 15%;
+      height: 35%;
+      padding: .15em;
+    }
+  }
+}
+*/
+.x-ray .crown {
+  background: rgba(93, 93, 95, 0.2); }
+
+/*# sourceMappingURL=time-dial.css.map */
+
+.ionic-button:hover, .ionic-button:active, .ionic-button:focus {
+  text-decoration: underline;
+  background: #4F8EF7;
+  color: white;
+  opacity: 1;
+}
+
+.slider{
+  height: 100%;
+  text-align: center;
+}

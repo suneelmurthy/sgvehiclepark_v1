@@ -1,0 +1,40 @@
+<ion-view title="Transactions">
+  <ion-nav-buttons side="right">
+    <a class="button button-icon icon ion-plus" href="#/app/create"></a>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+    <ion-list>
+        <ion-item collection-repeat="transaction in transactions" >
+        
+        <i class="icon ion-record "></i>
+        <div class="row">
+          <div class="col-10">
+            {{transaction.Date}}
+          </div>
+          <!-- <div class="col-10">
+            {{transaction.Nric}}
+          </div> -->
+           <div class="col-10">
+            {{transaction.Veh}}
+          </div>
+            <div class="col-10">
+            {{transaction.Loc}}
+          </div>
+             <div class="col-10">
+            {{transaction.Amount}}
+          </div>
+              <div class="col-10">
+            {{transaction.Start}}
+          </div>
+              <div class="col-10">
+            {{transaction.Stop}}
+          </div>
+              <div class="col-10">
+            {{transaction.Duration}}
+          </div>
+              
+        </div>        
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,47 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">User Information</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeUpdateuser()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div>
+      <br><br>
+    </div>
+    <div align="center">
+      <h4> Update User Information. </h4>
+    </div>
+    <form>
+      <div>
+        <br><br>
+      </div>
+
+      <div class="list">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">First Name</span>
+          <input type="text" placeholder="John" ng-model="userupdateData.firstname">
+        </label>
+        
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Last Name</span>
+          <input type="text" placeholder="Ng" ng-model="userupdateData.lastname">
+        </label>
+
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Email</span>
+          <input type="email" placeholder="john.ng@gmail.com" ng-model="userupdateData.email">
+        </label>
+       
+        <div>
+          <br><br><br><br><br><br>
+        </div>
+
+        <div>
+          <button class="button button-block icon-left ion-ios-unlocked button-calm" ng-click="doUpdateuser()">Update Information</button>
+        </div>
+        
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view> 
